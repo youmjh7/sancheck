@@ -10,6 +10,7 @@ function App() {
   const [userName, setUserName] = useState('');
   const [isWalking, setIsWalking] = useState(false)
   const [path, setPath] = useState([])
+  const [currentPosition, setCurrentPosition] = useState(null)
   const watchId = useRef(null)
 
   const handleEnterApp = (name) => {
@@ -71,7 +72,7 @@ function App() {
         <DogInfo />
 
         <div className="map-section">
-          <WalkMap isWalking={isWalking} path={path} />
+          <WalkMap isWalking={isWalking} path={path} onPositionFound={setCurrentPosition} />
         </div>
 
         <div className="controls">
@@ -100,29 +101,19 @@ function App() {
               🦴 근처 애견용품점
             </a>
             <button onClick={() => {
-              const share = (lat, lng) => {
-                const mapUrl = `https://www.google.com/maps?q=${lat},${lng}`;
-                const text = `[산책하니?] 현재 위치 공유 🐾\n📍 위치: ${mapUrl}`;
-                if (navigator.share) {
-                  navigator.share({ title: '산책하니? 위치 공유', text, url: mapUrl })
-                    .catch(err => console.log('공유 실패', err));
-                } else {
-                  navigator.clipboard.writeText(text);
-                  alert("위치 정보가 클립보드에 복사되었습니다!");
-                }
-              };
-
-              if (path.length > 0) {
-                const [lat, lng] = path[path.length - 1];
-                share(lat, lng);
-              } else if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                  (pos) => share(pos.coords.latitude, pos.coords.longitude),
-                  () => alert("위치를 가져올 수 없습니다.\nGPS 버튼(📍)을 먼저 눌러주세요!"),
-                  { enableHighAccuracy: true, timeout: 10000 }
-                );
+              const pos = currentPosition || (path.length > 0 ? { lat: path[path.length - 1][0], lng: path[path.length - 1][1] } : null);
+              if (!pos) {
+                alert("먼저 지도의 📍 GPS 버튼을 눌러 위치를 가져오세요!");
+                return;
+              }
+              const mapUrl = `https://www.google.com/maps?q=${pos.lat},${pos.lng}`;
+              const text = `[산책하니?] 현재 위치 공유 🐾\n📍 위치: ${mapUrl}`;
+              if (navigator.share) {
+                navigator.share({ title: '산책하니? 위치 공유', text, url: mapUrl })
+                  .catch(err => console.log('공유 실패', err));
               } else {
-                alert("이 브라우저는 위치 정보를 지원하지 않습니다.");
+                navigator.clipboard.writeText(text);
+                alert("위치 정보가 클립보드에 복사되었습니다!");
               }
             }} className="action-btn share">
               📢 위치 공유

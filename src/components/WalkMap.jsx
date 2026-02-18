@@ -62,7 +62,7 @@ function GpsButton({ onClick, status }) {
     );
 }
 
-function LocationMarker() {
+function LocationMarker({ onPositionFound }) {
     const [position, setPosition] = useState(null);
     const [nearbyDogs, setNearbyDogs] = useState([]);
     const [userIcon, setUserIcon] = useState(DefaultIcon);
@@ -138,6 +138,7 @@ function LocationMarker() {
                 setPosition(latlng);
                 setGpsStatus('found');
                 map.flyTo(latlng, 16);
+                if (onPositionFound) onPositionFound({ lat: latlng.lat, lng: latlng.lng });
 
                 if (nearbyDogs.length === 0) {
                     const dogs = [];
@@ -191,7 +192,7 @@ function LocationMarker() {
     );
 }
 
-const WalkMap = ({ isWalking, path }) => {
+const WalkMap = ({ isWalking, path, onPositionFound }) => {
     const center = [37.5665, 126.9780]; // Default to Seoul
 
     return (
@@ -200,7 +201,7 @@ const WalkMap = ({ isWalking, path }) => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <LocationMarker />
+            <LocationMarker onPositionFound={onPositionFound} />
             {path && path.length > 0 && (
                 <>
                     <Polyline
