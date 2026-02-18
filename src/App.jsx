@@ -112,15 +112,13 @@ function App() {
                 }
               };
 
-              // Try path first, then get fresh GPS location
               if (path.length > 0) {
                 const [lat, lng] = path[path.length - 1];
                 share(lat, lng);
               } else if (navigator.geolocation) {
-                alert("📍 현재 위치를 가져오는 중...");
                 navigator.geolocation.getCurrentPosition(
                   (pos) => share(pos.coords.latitude, pos.coords.longitude),
-                  () => alert("위치를 가져올 수 없습니다.\n📍 GPS 버튼을 먼저 눌러 위치를 허용해주세요!"),
+                  () => alert("위치를 가져올 수 없습니다.\nGPS 버튼(📍)을 먼저 눌러주세요!"),
                   { enableHighAccuracy: true, timeout: 10000 }
                 );
               } else {
