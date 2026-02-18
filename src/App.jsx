@@ -1,0 +1,132 @@
+import { useState, useEffect, useRef } from 'react'
+import './App.css'
+import DogInfo from './components/DogInfo'
+import WalkMap from './components/WalkMap'
+
+import LandingPage from './components/LandingPage'
+
+function App() {
+  const [showLanding, setShowLanding] = useState(true);
+  const [userName, setUserName] = useState('');
+  const [isWalking, setIsWalking] = useState(false)
+  const [path, setPath] = useState([])
+  const watchId = useRef(null)
+
+  const handleEnterApp = (name) => {
+    setUserName(name);
+    setShowLanding(false);
+  };
+
+  const toggleWalk = () => {
+    if (isWalking) {
+      // Stop walking
+      setIsWalking(false)
+      if (watchId.current) {
+        navigator.geolocation.clearWatch(watchId.current)
+        watchId.current = null
+      }
+    } else {
+      // Start walking
+      setIsWalking(true)
+      setPath([]) // Reset path for new walk
+
+      if (navigator.geolocation) {
+        watchId.current = navigator.geolocation.watchPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords
+            setPath((prevPath) => [...prevPath, [latitude, longitude]])
+          },
+          (error) => {
+            console.error("Error getting location:", error)
+          },
+          { enableHighAccuracy: true }
+        )
+      } else {
+        alert("이 브라우저는 위치 정보를 지원하지 않습니다.")
+      }
+    }
+  }
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (watchId.current) {
+        navigator.geolocation.clearWatch(watchId.current)
+      }
+    }
+  }, [])
+
+  if (showLanding) {
+    return <LandingPage onEnter={handleEnterApp} />;
+  }
+
+  return (
+    <div className="app-container">
+      <header className="app-header">
+        <h1>🐾 산책하니?</h1>
+        {userName && <div className="user-greeting">{userName}님, 반가워요!</div>}
+      </header>
+
+      <main className="app-content">
+        <DogInfo />
+
+        <div className="map-section">
+          <WalkMap isWalking={isWalking} path={path} />
+        </div>
+
+        <div className="controls">
+          <button
+            className={`walk-button ${isWalking ? 'stop' : 'start'}`}
+            onClick={toggleWalk}
+          >
+            {isWalking ? '산책 종료' : '산책 시작'}
+          </button>
+
+
+          {isWalking && (
+            <div className="stats">
+              <p>기록된 위치: {path.length}개</p>
+            </div>
+          )}
+        </div>
+
+        <div className="quick-actions">
+          <h3>빠른 실행</h3>
+          <div className="button-grid">
+            <a href="https://www.google.com/maps/search/애견운동장" target="_blank" rel="noopener noreferrer" className="action-btn">
+              🌳 근처 애견운동장
+            </a>
+            <a href="https://www.google.com/maps/search/애견용품점" target="_blank" rel="noopener noreferrer" className="action-btn">
+              🦴 근처 애견용품점
+            </a>
+            <button onClick={() => {
+              const lastPos = path.length > 0 ? path[path.length - 1] : null;
+              if (!lastPos) {
+                alert("위치 정보가 아직 없습니다. 산책을 시작해주세요!");
+                return;
+              }
+              const [lat, lng] = lastPos;
+              const mapUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+              const text = `[위드펫] 훈련사 현재 위치 공유\n궁금한 점이 있으시면 언제든 물어보세요!\n📍 현재 위치: ${mapUrl}`;
+
+              if (navigator.share) {
+                navigator.share({
+                  title: '위드펫 훈련사 위치',
+                  text: text,
+                  url: mapUrl,
+                }).catch(err => console.log('공유 실패', err));
+              } else {
+                navigator.clipboard.writeText(text);
+                alert("위치 정보가 클립보드에 복사되었습니다!");
+              }
+            }} className="action-btn share">
+              📢 훈련사 위치 공유
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  )
+}
+
+export default App
