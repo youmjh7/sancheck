@@ -107,13 +107,15 @@ function App() {
                 return;
               }
               const mapUrl = `https://www.google.com/maps?q=${pos.lat},${pos.lng}`;
-              const text = `[산책하니?] 현재 위치 공유 🐾\n📍 위치: ${mapUrl}`;
-              if (navigator.share) {
-                navigator.share({ title: '산책하니? 위치 공유', text, url: mapUrl })
-                  .catch(err => console.log('공유 실패', err));
-              } else {
+              const text = `[산책하니?] 현재 위치 📍\n${mapUrl}`;
+              // Open map URL directly - works everywhere
+              window.open(mapUrl, '_blank');
+              // Also try clipboard
+              try {
                 navigator.clipboard.writeText(text);
-                alert("위치 정보가 클립보드에 복사되었습니다!");
+                alert("📍 지도가 열렸어요!\n링크도 클립보드에 복사됐습니다. 카카오톡에 붙여넣기 하세요!");
+              } catch (e) {
+                alert(`📍 현재 위치:\n${mapUrl}\n\n이 링크를 카카오톡에 복사해서 공유하세요!`);
               }
             }} className="action-btn share">
               📢 위치 공유
