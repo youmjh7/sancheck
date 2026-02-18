@@ -100,27 +100,34 @@ function App() {
               🦴 근처 애견용품점
             </a>
             <button onClick={() => {
-              const lastPos = path.length > 0 ? path[path.length - 1] : null;
-              if (!lastPos) {
-                alert("위치 정보가 아직 없습니다. 산책을 시작해주세요!");
-                return;
-              }
-              const [lat, lng] = lastPos;
-              const mapUrl = `https://www.google.com/maps?q=${lat},${lng}`;
-              const text = `[위드펫] 훈련사 현재 위치 공유\n궁금한 점이 있으시면 언제든 물어보세요!\n📍 현재 위치: ${mapUrl}`;
+              const share = (lat, lng) => {
+                const mapUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+                const text = `[산책하니?] 현재 위치 공유 🐾\n📍 위치: ${mapUrl}`;
+                if (navigator.share) {
+                  navigator.share({ title: '산책하니? 위치 공유', text, url: mapUrl })
+                    .catch(err => console.log('공유 실패', err));
+                } else {
+                  navigator.clipboard.writeText(text);
+                  alert("위치 정보가 클립보드에 복사되었습니다!");
+                }
+              };
 
-              if (navigator.share) {
-                navigator.share({
-                  title: '위드펫 훈련사 위치',
-                  text: text,
-                  url: mapUrl,
-                }).catch(err => console.log('공유 실패', err));
+              // Try path first, then get fresh GPS location
+              if (path.length > 0) {
+                const [lat, lng] = path[path.length - 1];
+                share(lat, lng);
+              } else if (navigator.geolocation) {
+                alert("📍 현재 위치를 가져오는 중...");
+                navigator.geolocation.getCurrentPosition(
+                  (pos) => share(pos.coords.latitude, pos.coords.longitude),
+                  () => alert("위치를 가져올 수 없습니다.\n📍 GPS 버튼을 먼저 눌러 위치를 허용해주세요!"),
+                  { enableHighAccuracy: true, timeout: 10000 }
+                );
               } else {
-                navigator.clipboard.writeText(text);
-                alert("위치 정보가 클립보드에 복사되었습니다!");
+                alert("이 브라우저는 위치 정보를 지원하지 않습니다.");
               }
             }} className="action-btn share">
-              📢 훈련사 위치 공유
+              📢 위치 공유
             </button>
           </div>
         </div>
