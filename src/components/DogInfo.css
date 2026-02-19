@@ -1,91 +1,304 @@
-.dog-info-card {
+/* DogInfo - Stitch Design Card */
+.di-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 80, 200, 0.12);
+  overflow: hidden;
+  border: 1px solid rgba(0, 100, 220, 0.08);
+}
+
+/* Header */
+.di-card-header {
   display: flex;
   align-items: center;
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f4ff;
+}
+
+.di-header-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a4a8e;
+}
+
+.di-edit-btn {
+  background: #f0f6ff;
+  color: #1a6bde;
+  border: 1px solid #c8deff;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.di-edit-btn:hover {
+  background: #ddeeff;
+}
+
+/* Profile Section */
+.di-profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 16px;
+}
+
+.di-avatar-wrap {
   position: relative;
+  width: 100px;
+  height: 100px;
 }
 
-.dog-info-card.editing {
-  display: block;
-}
-
-.dog-image {
-  width: 80px;
-  height: 80px;
+.di-avatar {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 16px;
-  border: 3px solid #f0f0f0;
+  border: 4px solid white;
+  box-shadow: 0 4px 16px rgba(0, 80, 200, 0.2);
+  background: #e8f4ff;
 }
 
-.dog-details {
-  flex: 1;
+.di-status-dot {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background: #22c55e;
+  border: 2px solid white;
+  border-radius: 50%;
 }
 
-.header-row {
+.di-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 12px 0 6px;
+}
+
+.di-breed-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 8px;
 }
 
-.dog-details h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #333;
-}
-
-.dog-details p {
-  margin: 4px 0 0;
-  color: #666;
+.di-breed {
+  color: #64748b;
   font-size: 0.9rem;
-}
-
-.edit-btn {
-  background: none;
-  border: 1px solid #ddd;
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.dog-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.form-group label {
-  font-size: 0.85rem;
-  color: #555;
   font-weight: 500;
 }
 
-.form-group input {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
+.di-dot {
+  width: 4px;
+  height: 4px;
+  background: #cbd5e1;
+  border-radius: 50%;
 }
 
-.save-btn {
-  background-color: #4CAF50;
+.di-active {
+  color: #1a6bde;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Stats Grid */
+.di-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 16px 20px;
+}
+
+.di-stat-card {
+  background: #f8faff;
+  border: 1px solid #e0ecff;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.di-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  margin: 0 0 6px;
+}
+
+.di-stat-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+/* Owner Section */
+.di-owner-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(26, 107, 222, 0.05);
+  border-top: 1px solid rgba(26, 107, 222, 0.08);
+  border-bottom: 1px solid rgba(26, 107, 222, 0.08);
+  margin-bottom: 0;
+}
+
+.di-owner-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.di-owner-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a6bde, #0099ff);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.di-owner-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin: 0;
+  font-weight: 500;
+}
+
+.di-owner-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.di-verified {
+  width: 28px;
+  height: 28px;
+  background: rgba(26, 107, 222, 0.1);
+  color: #1a6bde;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Edit Form */
+.di-edit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f4ff;
+}
+
+.di-edit-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a4a8e;
+  margin: 0;
+}
+
+.di-back-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #64748b;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+}
+
+.di-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.di-photo-upload {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.di-edit-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c8deff;
+}
+
+.di-photo-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #1a6bde;
+  color: white;
+  border-radius: 20px;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.di-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.di-form-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.di-form-group input {
+  padding: 12px 14px;
+  border: 2px solid #e0ecff;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #1a1a2e;
+}
+
+.di-form-group input:focus {
+  border-color: #1a6bde;
+}
+
+.di-save-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #1a6bde, #0099ff);
   color: white;
   border: none;
-  padding: 10px;
-  border-radius: 8px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
-  font-weight: 600;
-  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(26, 107, 222, 0.35);
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+
+.di-save-btn:hover {
+  transform: translateY(-2px);
 }
