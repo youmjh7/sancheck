@@ -4,10 +4,10 @@ import './DogInfo.css';
 const DogInfo = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [dog, setDog] = useState({
-    name: '바둑이',
-    breed: '골든 리트리버',
+    name: '스티치',
+    breed: '실험체 626호',
     age: 3,
-    image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    image: 'https://static.wikia.nocookie.net/disney/images/b/b8/Stitch-ohana.png'
   });
 
   useEffect(() => {

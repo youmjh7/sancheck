@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './LandingPage.css';
 
 const LandingPage = ({ onEnter }) => {
-    const [logo, setLogo] = useState('https://cdn-icons-png.flaticon.com/512/616/616554.png'); // Default dog paw icon
+    const [logo, setLogo] = useState('https://static.wikia.nocookie.net/disney/images/b/b8/Stitch-ohana.png');
     const [userName, setUserName] = useState('');
 
     useEffect(() => {
@@ -58,8 +58,8 @@ const LandingPage = ({ onEnter }) => {
                     />
                 </div>
 
-                <h1 className="landing-title">산책하니?</h1>
-                <p className="landing-subtitle">내 강아지와 함께하는 행복한 산책</p>
+                <h1 className="landing-title">👽 스티치와 산책!</h1>
+                <p className="landing-subtitle">스티치와 함께하는 특별한 산책 🐾</p>
 
                 <div className="login-form">
                     <input
@@ -71,7 +71,7 @@ const LandingPage = ({ onEnter }) => {
                         onKeyPress={(e) => e.key === 'Enter' && handleEnter()}
                     />
                     <button onClick={handleEnter} className="enter-button">
-                        입장하기
+                        🚀 출발!
                     </button>
                 </div>
             </div>

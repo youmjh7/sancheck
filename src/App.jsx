@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>🐾 산책하니?</h1>
+        <h1>👽 스티치와 산책!</h1>
         {userName && <div className="user-greeting">{userName}님, 반가워요!</div>}
       </header>
 
@@ -80,7 +80,7 @@ function App() {
             className={`walk-button ${isWalking ? 'stop' : 'start'}`}
             onClick={toggleWalk}
           >
-            {isWalking ? '산책 종료' : '산책 시작'}
+            {isWalking ? '🛑 산책 종료' : '🐾 산책 시작!'}
           </button>
 
 

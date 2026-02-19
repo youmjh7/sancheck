@@ -2,14 +2,14 @@
   max-width: 600px;
   margin: 0 auto;
   min-height: 100vh;
-  background-color: #f5f7fa;
+  background: linear-gradient(180deg, #e8f4ff 0%, #c8e8ff 100%);
   font-family: 'Inter', sans-serif;
 }
 
 .app-header {
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #1a6bde 0%, #0099ff 100%);
   padding: 16px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 120, 220, 0.3);
   text-align: center;
   position: sticky;
   top: 0;
@@ -18,13 +18,15 @@
 
 .app-header h1 {
   margin: 0;
-  font-size: 1.5rem;
-  color: #2c3e50;
+  font-size: 1.6rem;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
 }
 
 .user-greeting {
   font-size: 0.9rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.85);
   margin-top: 4px;
 }
 
@@ -36,9 +38,9 @@
 }
 
 .map-section {
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 80, 200, 0.2);
   border: 4px solid #fff;
 }
 
@@ -52,8 +54,9 @@
 
 .quick-actions h3 {
   margin: 0 0 10px 0;
-  color: #333;
+  color: #1a4a8e;
   font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .button-grid {
@@ -64,16 +67,16 @@
 
 .action-btn {
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 2px solid #a8d4ff;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 14px;
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  color: #1a4a8e;
+  font-weight: 600;
   text-align: center;
   font-size: 0.9rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.2s;
+  box-shadow: 0 3px 8px rgba(0, 80, 200, 0.1);
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,50 +84,54 @@
 }
 
 .action-btn:hover {
-  background-color: #f9f9f9;
+  background-color: #e8f4ff;
+  transform: translateY(-2px);
 }
 
 .action-btn.share {
   grid-column: span 2;
-  background-color: #2196F3;
+  background: linear-gradient(135deg, #1a6bde, #0099ff);
   color: white;
   border: none;
+  box-shadow: 0 4px 12px rgba(0, 120, 220, 0.4);
 }
 
 .action-btn.share:hover {
-  background-color: #1e88e5;
+  background: linear-gradient(135deg, #0055cc, #0077ee);
+  transform: translateY(-2px);
 }
 
 .walk-button {
   width: 100%;
-  padding: 16px;
+  padding: 18px;
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
 }
 
 .walk-button.start {
-  background-color: #4CAF50;
+  background: linear-gradient(135deg, #1a6bde, #0099ff);
   color: white;
 }
 
 .walk-button.start:hover {
-  background-color: #45a049;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 120, 220, 0.4);
 }
 
 .walk-button.stop {
-  background-color: #FF5252;
+  background: linear-gradient(135deg, #ff4466, #ff1744);
   color: white;
 }
 
 .walk-button.stop:hover {
-  background-color: #ff1744;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 50, 80, 0.4);
 }
 
 .stats {
@@ -132,6 +139,7 @@
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 0.9rem;
-  color: #666;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: #1a4a8e;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(0, 80, 200, 0.1);
 }
