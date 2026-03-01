@@ -62,7 +62,7 @@ const DogInfo = () => {
         <div className="di-edit-header">
           <button onClick={() => setIsEditing(false)} className="di-back-btn">←</button>
           <h2>프로필 수정</h2>
-          <div style={{ width: 36 }} />
+          <div style={{ width: 40 }} />
         </div>
         <form onSubmit={handleSave} className="di-form">
           <label className="di-photo-upload">
@@ -72,17 +72,17 @@ const DogInfo = () => {
           </label>
           <div className="di-form-group">
             <label>이름</label>
-            <input name="name" value={dog.name} onChange={handleChange} required />
+            <input name="name" value={dog.name} onChange={handleChange} placeholder="강아지 이름" required />
           </div>
           <div className="di-form-group">
             <label>품종</label>
-            <input name="breed" value={dog.breed} onChange={handleChange} required />
+            <input name="breed" value={dog.breed} onChange={handleChange} placeholder="ex) 포메라니안" required />
           </div>
           <div className="di-form-group">
             <label>나이</label>
-            <input name="age" type="number" value={dog.age} onChange={handleChange} required />
+            <input name="age" type="number" value={dog.age} onChange={handleChange} placeholder="나이(숫자)" required />
           </div>
-          <button type="submit" className="di-save-btn">💾 저장하기</button>
+          <button type="submit" className="di-save-btn">💾 변경사항 저장</button>
         </form>
       </div>
     );

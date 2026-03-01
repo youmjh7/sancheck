@@ -1,12 +1,6 @@
 @echo off
 set GIT="C:\Program Files\Git\bin\git.exe"
-%GIT% init
-%GIT% config user.email "youmjh7@github.com"
-%GIT% config user.name "youmjh7"
-%GIT% add .
-%GIT% commit -m "Initial commit: 산책하니? app"
-%GIT% branch -M main
-%GIT% remote remove origin 2>nul
-%GIT% remote add origin https://github.com/youmjh7/sancheck.git
-%GIT% push -u origin main
+%GIT% add index.html src/index.css src/App.css src/components/LandingPage.css src/components/DogInfo.css src/components/DogInfo.jsx src/components/WalkMap.jsx push_to_github.bat
+%GIT% commit -m "UI: 모던 글래스모피즘 & 부드러운 그라데이션으로 전체 테마 개편"
+%GIT% push
 echo Done!

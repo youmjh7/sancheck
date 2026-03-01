@@ -1,10 +1,12 @@
 /* DogInfo - Stitch Design Card */
 .di-card {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 80, 200, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  border: 1px solid rgba(0, 100, 220, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 /* Header */
@@ -12,30 +14,33 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid #f0f4ff;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(240, 244, 255, 0.5);
 }
 
 .di-header-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #1a4a8e;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #2d3748;
+  letter-spacing: -0.3px;
 }
 
 .di-edit-btn {
-  background: #f0f6ff;
-  color: #1a6bde;
-  border: 1px solid #c8deff;
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 0.82rem;
-  font-weight: 600;
+  background: rgba(240, 246, 255, 0.8);
+  color: #4facfe;
+  border: 1px solid rgba(200, 222, 255, 0.5);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .di-edit-btn:hover {
-  background: #ddeeff;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 172, 254, 0.15);
 }
 
 /* Profile Section */
@@ -43,13 +48,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 20px 16px;
+  padding: 28px 24px 20px;
 }
 
 .di-avatar-wrap {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
 }
 
 .di-avatar {
@@ -58,26 +63,33 @@
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid white;
-  box-shadow: 0 4px 16px rgba(0, 80, 200, 0.2);
-  background: #e8f4ff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #f4f7fe;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.di-avatar-wrap:hover .di-avatar {
+  transform: scale(1.05);
 }
 
 .di-status-dot {
   position: absolute;
   bottom: 4px;
   right: 4px;
-  width: 16px;
-  height: 16px;
-  background: #22c55e;
-  border: 2px solid white;
+  width: 18px;
+  height: 18px;
+  background: #48bb78;
+  border: 3px solid white;
   border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .di-name {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  color: #1a1a2e;
-  margin: 12px 0 6px;
+  color: #1a202c;
+  margin: 16px 0 6px;
+  letter-spacing: -0.5px;
 }
 
 .di-breed-row {
@@ -87,52 +99,59 @@
 }
 
 .di-breed {
-  color: #64748b;
-  font-size: 0.9rem;
-  font-weight: 500;
+  color: #718096;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .di-dot {
   width: 4px;
   height: 4px;
-  background: #cbd5e1;
+  background: #cbd5e0;
   border-radius: 50%;
 }
 
 .di-active {
-  color: #1a6bde;
-  font-size: 0.9rem;
-  font-weight: 600;
+  color: #4facfe;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 /* Stats Grid */
 .di-stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 16px 20px;
+  gap: 12px;
+  padding: 16px 24px;
 }
 
 .di-stat-card {
-  background: #f8faff;
-  border: 1px solid #e0ecff;
-  border-radius: 14px;
-  padding: 14px;
+  background: rgba(248, 250, 255, 0.6);
+  border: 1px solid rgba(224, 236, 255, 0.6);
+  border-radius: 20px;
+  padding: 16px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.di-stat-card:hover {
+  transform: translateY(-2px);
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .di-stat-label {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #94a3b8;
-  margin: 0 0 6px;
+  letter-spacing: 0.08em;
+  color: #a0aec0;
+  margin: 0 0 8px;
 }
 
 .di-stat-value {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  color: #1a1a2e;
+  color: #2d3748;
   margin: 0;
 }
 
@@ -141,10 +160,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  background: rgba(26, 107, 222, 0.05);
-  border-top: 1px solid rgba(26, 107, 222, 0.08);
-  border-bottom: 1px solid rgba(26, 107, 222, 0.08);
+  padding: 16px 24px;
+  background: rgba(26, 107, 222, 0.03);
+  border-top: 1px solid rgba(26, 107, 222, 0.05);
+  border-bottom: 1px solid rgba(26, 107, 222, 0.05);
   margin-bottom: 0;
 }
 
@@ -199,38 +218,46 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid #f0f4ff;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(240, 244, 255, 0.5);
 }
 
 .di-edit-header h2 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1a4a8e;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #2d3748;
   margin: 0;
+  letter-spacing: -0.3px;
 }
 
 .di-back-btn {
   background: none;
   border: none;
-  font-size: 1.2rem;
-  color: #64748b;
+  font-size: 1.4rem;
+  color: #a0aec0;
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.di-back-btn:hover {
+  background: #f4f7fe;
+  color: #4facfe;
 }
 
 .di-form {
-  padding: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
 .di-photo-upload {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
   cursor: pointer;
 }
@@ -240,65 +267,78 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #c8deff;
+  border: 4px solid white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.di-photo-upload:hover .di-edit-photo {
+  transform: scale(1.05);
 }
 
 .di-photo-overlay {
   position: absolute;
   bottom: 0;
   right: 0;
-  background: #1a6bde;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: white;
   border-radius: 20px;
-  padding: 3px 8px;
-  font-size: 0.7rem;
-  font-weight: 600;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 242, 254, 0.3);
 }
 
 .di-form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .di-form-group label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #718096;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .di-form-group input {
-  padding: 12px 14px;
-  border: 2px solid #e0ecff;
-  border-radius: 12px;
-  font-size: 0.95rem;
+  padding: 14px 16px;
+  border: 2px solid transparent;
+  background: rgba(244, 247, 254, 0.7);
+  border-radius: 14px;
+  font-size: 1rem;
   font-family: inherit;
+  font-weight: 600;
   outline: none;
-  transition: border-color 0.2s;
-  color: #1a1a2e;
+  transition: all 0.3s;
+  color: #2d3748;
 }
 
 .di-form-group input:focus {
-  border-color: #1a6bde;
+  background: white;
+  border-color: #4facfe;
+  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.15);
 }
 
 .di-save-btn {
   width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, #1a6bde, #0099ff);
+  padding: 16px;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: white;
   border: none;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 700;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(26, 107, 222, 0.35);
-  transition: all 0.2s;
-  margin-top: 4px;
+  box-shadow: 0 8px 20px rgba(0, 242, 254, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-top: 8px;
+  letter-spacing: 0.5px;
 }
 
 .di-save-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 242, 254, 0.4);
 }

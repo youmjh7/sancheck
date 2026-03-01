@@ -30,7 +30,7 @@ function GpsButton({ onClick, status }) {
     return (
         <div
             className="leaflet-top leaflet-right"
-            style={{ marginTop: '10px', marginRight: '10px', zIndex: 1000 }}
+            style={{ marginTop: '16px', marginRight: '16px', zIndex: 1000 }}
             onMouseDown={(e) => e.stopPropagation()}
             onTouchStart={(e) => e.stopPropagation()}
         >
@@ -39,19 +39,28 @@ function GpsButton({ onClick, status }) {
                     onClick={(e) => { e.stopPropagation(); onClick(); }}
                     onTouchEnd={(e) => { e.stopPropagation(); e.preventDefault(); onClick(); }}
                     style={{
-                        background: status === 'searching' ? '#ff9800' : '#4CAF50',
+                        background: status === 'searching' ? 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)' : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                         color: 'white',
-                        border: 'none',
+                        border: '2px solid white',
                         borderRadius: '50%',
-                        width: '52px',
-                        height: '52px',
+                        width: '56px',
+                        height: '56px',
                         fontSize: '24px',
                         cursor: 'pointer',
-                        boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                        boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         touchAction: 'manipulation',
+                        transition: 'transform 0.2s, box-shadow 0.2s'
+                    }}
+                    onMouseOver={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.2)';
+                    }}
+                    onMouseOut={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
                     }}
                     title="내 위치 찾기"
                 >
