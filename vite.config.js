@@ -19,7 +19,9 @@ export default defineConfig({
         name: '산책하니? - 강아지 산책',
         short_name: '산책하니?',
         description: '내 강아지와 함께하는 행복한 산책',
-        theme_color: '#ffffff',
+        theme_color: '#fdfbfb',
+        background_color: '#fdfbfb',
+        display: 'standalone',
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -30,6 +32,18 @@ export default defineConfig({
             src: 'pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png'
+          },
+          {
+            src: 'manifest-icon-192.maskable.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any maskable'
+          },
+          {
+            src: 'manifest-icon-512.maskable.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       }
