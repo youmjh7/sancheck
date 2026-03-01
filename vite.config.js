@@ -14,6 +14,11 @@ export default defineConfig({
     // basicSsl(), // Disabled for localtunnel
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        cleanupOutdatedCaches: true,
+        skipWaiting: true,
+        clientsClaim: true,
+      },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
         name: '산책하니?',
@@ -25,23 +30,23 @@ export default defineConfig({
         start_url: '/?v=2',
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: 'pwa-192x192.png?v=3',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
+            src: 'pwa-512x512.png?v=3',
             sizes: '512x512',
             type: 'image/png'
           },
           {
-            src: 'manifest-icon-192.maskable.png',
+            src: 'manifest-icon-192.maskable.png?v=3',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: 'manifest-icon-512.maskable.png',
+            src: 'manifest-icon-512.maskable.png?v=3',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
