@@ -1,6 +1,6 @@
 @echo off
 set GIT="C:\Program Files\Git\bin\git.exe"
-%GIT% add public/ src/components/LandingPage.jsx push_to_github.bat scripts/
-%GIT% commit -m "UI: 새로운 강아지 이미지로 앱 로고 및 PWA 아이콘 전면 교체"
+%GIT% add -A
+%GIT% commit -m "Fix: 기존 캐시 완전 무력화를 위해 아이콘 파일명 v4로 변경 배포"
 %GIT% push
 echo Done!
