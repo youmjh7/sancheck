@@ -1,0 +1,24 @@
+
+> ---@0.0.0 dev
+> vite
+
+[2m오후 10:42:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because lockfile has changed
+Port 5173 is in use, trying another one...
+
+  [32m[1mVITE[22m v7.3.1[39m  [2mready in [0m[1m3070[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5174[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.219.105:[1m5174[22m/[39m
+[2m오후 10:43:30[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[31mfailed to load config from D:\안티\강아지 산책\vite.config.js[39m
+[2m오후 10:43:30[22m [31m[1m[vite][22m[39m Cannot find package 'vite-plugin-pwa' imported from D:\안티\강아지 산책\node_modules\.vite-temp\vite.config.js.timestamp-1772372610780-596c21cb24267.mjs
+[2m오후 10:43:30[22m [31m[1m[vite][22m[39m server restart failed
+[2m오후 10:43:57[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[31mfailed to load config from D:\안티\강아지 산책\vite.config.js[39m
+[2m오후 10:43:57[22m [31m[1m[vite][22m[39m Cannot find package 'vite-plugin-pwa' imported from D:\안티\강아지 산책\node_modules\.vite-temp\vite.config.js.timestamp-1772372637911-9a0d07ef7fea18.mjs
+[2m오후 10:43:57[22m [31m[1m[vite][22m[39m server restart failed
+[2m오후 10:51:37[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[2m오후 10:51:38[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because lockfile has changed
+[2m오후 10:51:38[22m [36m[1m[vite][22m[39m server restarted.
+[2m오후 10:52:44[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[2m오후 10:52:44[22m [36m[1m[vite][22m[39m server restarted.

@@ -26,6 +26,15 @@ class ErrorBoundary extends Component {
   }
 }
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(
+      registration => console.log('ServiceWorker registered:', registration.scope),
+      err => console.error('ServiceWorker registration failed:', err)
+    );
+  });
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary>
