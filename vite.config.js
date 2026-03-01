@@ -16,12 +16,13 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: '산책하니? - 강아지 산책',
+        name: '산책하니?',
         short_name: '산책하니?',
         description: '내 강아지와 함께하는 행복한 산책',
         theme_color: '#fdfbfb',
         background_color: '#fdfbfb',
         display: 'standalone',
+        start_url: '/?v=2',
         icons: [
           {
             src: 'pwa-192x192.png',
